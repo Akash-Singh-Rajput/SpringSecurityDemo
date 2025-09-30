@@ -1,4 +1,4 @@
-package com.Spring.SecurityDemo;
+package com.Spring.SecurityDemo.jwt;
 
 import lombok.*;
 

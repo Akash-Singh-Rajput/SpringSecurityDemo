@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.util.Date;
@@ -61,16 +60,18 @@ public class JwtUtils {
 
                 .verifyWith( (SecretKey) key())
                 /*
-                   tells the parser which key to use for verifying the token’s signature.
-                   This ensures the token hasn’t been tampered with.
+                   tells the parser which key to use for verifying the token’s signature
+                   This ensures the token hasn’t been tampered with
                 */
-
 
                 .build()
 
                 .parseSignedClaims(token)
-                // returns Jws<Claims> object (singed claims) if the token is not expired
-                // and invalid else it will throw exception
+                /*
+                     returns Jws<Claims> object (singed claims) if the token is not expired
+                     and invalid else it will throw exception
+                */
+
 
                 .getPayload().getSubject();  // get the information and returns the username
      }
